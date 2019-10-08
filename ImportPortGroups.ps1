@@ -10,7 +10,7 @@ Connect-viserver $vCenter -user $vCenterUser -password $vCenterUserPassword -War
 
 #########################################################################################################################################
 
-$vDS = "vDS_PRODUCAO"
+$vDS = "vDS_PRODUCAO" ###vDS Name
 
 Get-ChildItem “C:\Users\path_where_are_the_port_groups_imported” | Foreach {
 
