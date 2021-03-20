@@ -19,5 +19,5 @@ Get-HardDisk -VM (Get-VM -Datastore $DS) -DiskType "Flat" | where {$_.filename -
 }
 
 
-#Get-VM -Datastore "VPLEX_PRD_VMDATA_L479" | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl
-#Get-HardDisk -VM (Get-VM -Datastore "VPLEX_PRD_VMDATA_L479") | where {$_.filename -match "VPLEX_PRD_VMDATA_L479"}
+#Get-VM -Datastore "VPLEX_PRD_VMDATA" | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl
+#Get-HardDisk -VM (Get-VM -Datastore "VPLEX_PRD_VMDATA") | where {$_.filename -match "VPLEX_PRD_VMDATA"}
