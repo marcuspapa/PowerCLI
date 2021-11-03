@@ -34,8 +34,6 @@
         DevicePath = $_.DevicePath
         LocalDisk = $_.LocalDisk
         Vendor = $_.Vendor
-        PhysicalLocation = $_.PhysicalLocation
-
 
       }
     }
@@ -56,11 +54,11 @@ $clusters = Get-Cluster
 
 foreach($cluster in $clusters){
 
-
+Write-Output "Estamos no: " $clusters.Name
 
 #Get-Cluster | Get-VMHost | Get-FreeScsiLun | Format-List | Export-Csv -Path C:\Users\Admin\Desktop\Marcus\$vcenter"_FreeVMFS.csv"
 
-Get-Cluster | Get-VMHost | Get-FreeScsiLun | Select VMhost,CanonicalName,Uuid,CapacityGB,DisplayName,DevicePath,LocalDisk,Vendor,PhysicalLocation | Export-Csv -Path C:\Users\Admin\Desktop\Marcus\$vcenter"_FreeVMFS.csv"
+Get-Cluster | Get-VMHost | where{$_.ConnectionState -eq 'Connected'} | Get-FreeScsiLun | Select VMhost,CanonicalName,Uuid,CapacityGB,DisplayName,DevicePath,LocalDisk,Vendor | Export-Csv -Path C:\Users\Admin\Desktop\Marcus\$vcenter"_FreeVMFS.csv"
 
 }
 
