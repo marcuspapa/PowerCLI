@@ -54,7 +54,7 @@ $clusters = Get-Cluster
 
 foreach($cluster in $clusters){
 
-Write-Output "Estamos no: " $clusters.Name
+Write-Output "Estamos no: " $cluster.Name
 
 #Get-Cluster | Get-VMHost | Get-FreeScsiLun | Format-List | Export-Csv -Path C:\Users\Admin\Desktop\Marcus\$vcenter"_FreeVMFS.csv"
 
