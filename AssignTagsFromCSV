@@ -1,0 +1,23 @@
+$vCenter=”“
+
+$vCenterUser=”administrator@vsphere.local“
+$vCenterUserPassword=”“   #clear text!!!
+
+write-host “Connecting to vCenter Server $vCenter” -foreground green
+
+Connect-viserver $vCenter -user $vCenterUser -password $vCenterUserPassword -WarningAction 0
+
+#Connect-viserver $vCenter
+
+
+foreach ($Row in (import-csv C:\Users\Admin\Desktop\Marcus\testetag.csv)) {
+ 
+$Datastore = $Row.Datastore  ##coluna datastore
+
+$Tag = $Row.Tag ##coluna tag
+
+write-host "O " $Datastore " deve ter a tag" $Tag
+
+New-TagAssignment -Tag $Tag -Entity $Datastore
+
+}
