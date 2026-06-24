@@ -1,0 +1,10 @@
+$vCenter=”“
+
+$vCenterUser=”“
+$vCenterUserPassword=”“   #clear text!!!
+
+write-host “Connecting to vCenter Server $vCenter” -foreground green
+
+Connect-viserver $vCenter -user $vCenterUser -password $vCenterUserPassword -WarningAction 0
+
+Get-VM | Select-Object Name,@{N='Folder';E={$_.Folder.Name}} |Export-Csv -Path D:\Downloads\VMFolders.csv -NoTypeInformation
